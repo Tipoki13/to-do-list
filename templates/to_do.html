@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>I'm extending the base template</h2>
+
     {% for to_do in to_do %}
         {{ to_do.title }}<br>
         {{ to_do.due_date }}<br>
         {{ to_do.description }}<br>
         {{ to_do.user }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
