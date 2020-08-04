@@ -21,10 +21,13 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_to_do') }}">List</a></li>
-                <li><a href="#">Add Item</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Logout</a></li>
+                {% if 'username' in session %}
+                    <li><a href="#">Add Item</a></li>
+                    <li><a href="{{ url_for('logout')}}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login')}}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
             </ul>
             </div>
         </nav>
@@ -34,7 +37,7 @@
             <li><a href="{{ url_for('get_to_do') }}">List</a></li>
             <li><a href="#">Add Item</a></li>
             <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </header>

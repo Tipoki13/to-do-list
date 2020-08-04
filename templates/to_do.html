@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>I'm extending the base template</h2>
-
-    {% for to_do in to_do %}
-        {{ to_do.title }}<br>
-        {{ to_do.due_date }}<br>
-        {{ to_do.detail }}<br>
-        {{ to_do.user }}<br>
-    {% endfor %}
+    <h2>Your To Do List</h2>
+    {% if 'username' in session %}
+        {% for to_do in to_do %}
+            {{ to_do.title }}<br>
+            {{ to_do.due_date }}<br>
+            {{ to_do.detail }}<br>
+            {{ to_do.user }}<br>
+        {% endfor %}
+    {% else %}
+        <p>You need to login or register</p>
+    {% endif %}
 
 {% endblock %}
