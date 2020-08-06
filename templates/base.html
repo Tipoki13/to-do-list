@@ -31,14 +31,18 @@
             </ul>
             </div>
         </nav>
+
         <!--Mobile Side Navbar-->
         <ul class="sidenav" id="mobile-demo">
             <li><h4 class="center-align light-blue-text text-darken-4">To Do List</h4></li>
             <li><a href="{{ url_for('get_to_do') }}">List</a></li>
-            <li><a href="#">Add Item</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="{{ url_for('register') }}">Register</a></li>
-            <li><a href="#">Logout</a></li>
+            {% if 'username' in session %}
+                <li><a href="#">Add Item</a></li>
+                <li><a href="{{ url_for('logout')}}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login')}}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
         </ul>
     </header>
 
