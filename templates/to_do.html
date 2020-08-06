@@ -2,30 +2,27 @@
 {% block content %}
 
     <h2>Your To Do List</h2>
-    {% if 'username' in session %}
-        {% for to_do in to_do %}
-            {{ to_do.title }}<br>
-            {{ to_do.due_date }}<br>
-            {{ to_do.detail }}<br>
-            {{ to_do.user }}<br>
-        {% endfor %}
-    {% else %}
-        <p>You need to login or register</p>
-    {% endif %}
 
     <ul class="collapsible">
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>Second</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>Third</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
+        {% if 'username' in session %}
+            {% for to_do in to_do %}
+            <li>
+                <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                    <i class="fas fa-caret-down"></i>
+                    <strong>{{ to_do.title }}</strong> : {{ to_do.due_date }}
+                    {% if to_do.is_urgent == "on" %}
+                        <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
+                            data-position="right" data-tooltip="URGENT!"></i>
+                    {% endif %}
+                </div>
+                <div class="collapsible-body">
+                    <p>{{ to_do.detail }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        {% else %}
+            <p>You need to login or register</p>
+        {% endif %}
     </ul>
 
 {% endblock %}

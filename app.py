@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_to_do')
 def get_to_do():
-    to_do = mongo.db.to_do.find()
+    to_do = list(mongo.db.to_do.find())
     return render_template("to_do.html", to_do=to_do)
 
 @app.route('/login', methods=['GET', 'POST'])
