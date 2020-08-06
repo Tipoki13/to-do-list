@@ -9,14 +9,14 @@
             <li>
                 <div class="collapsible-header white-text light-blue darken-4 text-shadow">
                     <i class="fas fa-caret-down"></i>
-                    <strong>{{ to_do.title }}</strong> : {{ to_do.due_date }}
+                    <strong>{{ to_do.item_name }}</strong> : {{ to_do.due_date }}
                     {% if to_do.is_urgent == "on" %}
                         <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
                             data-position="right" data-tooltip="URGENT!"></i>
                     {% endif %}
                 </div>
                 <div class="collapsible-body">
-                    <p>{{ to_do.detail }}</p>
+                    <p>{{ to_do.item_detail }}</p>
                 </div>
             </li>
             {% endfor %}
