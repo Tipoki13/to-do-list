@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>Your To Do List</h2>
+    <h2 class="light-blue-text text-darken-4 center-align">Your To Do List</h2>
 
     <ul class="collapsible">
         {% if 'username' in session %}
@@ -17,6 +17,7 @@
                 </div>
                 <div class="collapsible-body">
                     <p>{{ to_do.item_detail }}</p>
+                    <p><em>by: {{ to_do.created_by }}</em></p>
                 </div>
             </li>
             {% endfor %}
