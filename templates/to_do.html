@@ -8,12 +8,18 @@
             {% for to_do in to_do %}
             <li>
                 <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-                    <i class="fas fa-caret-down"></i>
-                    <strong>{{ to_do.item_name }}</strong> : {{ to_do.due_date }}
-                    {% if to_do.is_urgent == "on" %}
-                        <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
-                            data-position="right" data-tooltip="URGENT!"></i>
-                    {% endif %}
+                    <div class="col-s3">
+                        <i class="fas fa-caret-down"></i>
+                        <a class="waves-effect waves-light btn">DONE</a>
+                        <a class="waves-effect waves-light btn">EDIT</a>
+                    </div>
+                    <div class="col-s9">
+                        <strong>{{ to_do.item_name }}</strong> : {{ to_do.due_date }}
+                        {% if to_do.is_urgent == "on" %}
+                            <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
+                                data-position="right" data-tooltip="URGENT!"></i>
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="collapsible-body">
                     <p>{{ to_do.item_detail }}</p>
