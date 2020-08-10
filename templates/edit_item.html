@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2 class="light-blue-text text-darken-4 center-align">Edit Item</h2>
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" enctype="multipart/form-data" action="{{ url_for('edit_item', edit_item_id=edit_item._id)}}">
+            <!--Item Name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="item_name" name="item_name" minlength="5" maxlength="50" 
+                        type="text" class="validate" required>
+                    <label for="item_name">Item Name</label>
+                </div>
+            </div>
+            <!--Item Detail-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="item_detail" name="item_detail" minlength="5" maxlength="200"
+                        class="materialize-textarea validate" required></textarea>
+                    <label for="item_detail">Item Detail</label>
+                </div>
+            </div>
+            <!--Due Date-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
+                    <label for="due_date">Due Date</label>
+                </div>
+            </div>
+            <!--Is Urgent-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <div class="switch">
+                        <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                        <label for="is_urgent">
+                            <input type="checkbox" id="is_urgent" name="is_urgent">
+                            <span class="lever"></span>
+                            Is Urgent
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--Submit Button-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn-large light-blue darken-1 text-shadow" type="submit">Edit Item
+                        <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -22,8 +22,15 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_to_do')
 def get_to_do():
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            who = session["username"]
+            query = {"created_by": who}
+            to_do = list(mongo.db.to_do.find(query))
+            return render_template("to_do.html", to_do=to_do)
     to_do = list(mongo.db.to_do.find())
     return render_template("to_do.html", to_do=to_do)
+    
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -100,6 +107,27 @@ def add_item():
         return redirect(url_for('get_to_do'))
 
     return render_template("add_item.html")
+
+
+@app.route('/edit_item/<edit_item_id>', methods=['GET','POST'])
+def edit_item(edit_item_id):
+    edit_item = mongo.db.to_do.find_one({'_id': ObjectId(edit_item_id)})
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        to_do_db = mongo.db.to_do
+        to_do_db.update_one({
+            '_id': ObjectId(edit_item_id),
+        }, 
+        {
+            '$set': {
+                "item_name": request.form["item_name"],
+                "item_detail": request.form.get("item_detail"),
+                "due_date": request.form.get("due_date"),
+                "is_urgent": is_urgent,
+            } 
+        })
+        return redirect(url_for("get_to_do"))
+    return render_template("edit_item.html", edit_item=edit_item)
 
 
 if __name__ == '__main__':
