@@ -130,6 +130,15 @@ def edit_item(edit_item_id):
     return render_template("edit_item.html", edit_item=edit_item)
 
 
+@app.route('/delete_item/<delete_item_id>')
+def delete_item(delete_item_id):
+    to_do_db = mongo.db.to_do
+    to_do_db.delete_one({
+       '_id': ObjectId(delete_item_id),
+     })
+    return redirect(url_for('get_to_do'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
