@@ -1,39 +1,85 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# To Do List
 
-Welcome Tipoki13,
+As part of my milestone 3 project I decided to build a to do list web app mainly using Flask, Python and MongoDB.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+The main goal of the project was to build something practical that could be used to manage ones workload.
 
-## Gitpod Reminders
+The app has a user login system so that it can be used for more than one person. The app itself displays a 'To Do' list and enables the user to easily add, edit or delete items on the list.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Experience
 
-`python3 -m http.server`
+User experience is at the forefront of the development of the app. The app is intended to be easy to use and intuitive.
 
-A blue button should appear to click: *Make Public*,
+When the app loads in the browser, the user is met with the option to login or register. The user can then see the current list accompanied with an expand arrow, a 'Done' and 'Edit' button. In the navbar, there is the option to add a new item. Overall, the app is user-friendly and intuitive.
 
-Another blue button should appear to click: *Open Browser*.
+## Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+User Login System - a user login system is built in the app. This allows the user to register an account or login if they are already a user. There is a subsequent  database to store user information (username, password and email).
 
-A blue button should appear to click: *Make Public*,
+To Do List - the 'To Do List' displays the users current list of items to get through. It is accompanied with an expand arrow, a 'Done' (delete) button and an 'Edit' (update) button.
 
-Another blue button should appear to click: *Open Browser*.
+Edit Item - the 'Edit Item' screen allows the user to edit the details of an item already in the list. This includes item name, item details, due date and the urgency of the task which are also all stored in the database.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+Add Item - similar to the 'Edit Item', the 'Add Item' screen allows the user to add a new item to the list.
 
-## Updates Since The Instructional Video
+Username displayed under items - the users username is displayed in the expanded version of the item.
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+## Technologies Used
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- Python
+- Flask
+- MongoDB
+- jQuery
+- HTML Templates
+- CSS
+- Jinja
+- Materialize
+- Forms
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Testing
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+In order to test my project I mainly used Google developer tools, I checked the project worked in different browsers and I also ensured the project worked on different devices to make sure that it's responsive.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Also I used Google Dev tools to debug certain sections of code. I used breakpoints to isolate snippets of code and test them. I also used the debugger statement to test certain functions.
 
---------
+With regards, to testing the interaction with the database that was done manually. I manually visited the MongoDB website to view the database.
 
-Happy coding!
+I also used a code validator to ensure my code was of a sufficient standard.
+
+I also tested the game in Google Dev Tools for responsiveness and also manually on the following devices:
+- iPad
+- iPhone
+
+To test the register as new user function, I manually registed a new user and it worked.
+
+I then logged in as an existig user and this worked too.
+
+I tested logging out manually in the app and this also worked.
+
+I then tested the add item to list functionality and this worked too.
+
+I then proceeded to test the edit item and update functionality which also worked.
+
+I then registered a new user in order to check if the list cleared and wasn't displaying list items of other users.
+
+I then logged in as the original user and tested the delete function. The item I checked as Done disappeared, proving the function was working.
+
+Where relevant, for all of the above, I also manually checked the database to ensure everything was working and the database was connected.
+
+## Deployment
+
+I deployed my project on Heroku
+
+## Credits
+
+### Content
+
+- Tutor Support and help from my mentor were used to get help with issues I was struggling with.
+
+### Media
+
+N/A
+
+### Acknowledgements
+
+- I got inspiration from the mini-project in the data-centric development module. I chose this over the project ideas because I wanted to build something that would be of practical use to me.
